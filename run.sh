@@ -19,6 +19,7 @@ clang -emit-llvm jacobi.c -c -o jacobi_opt.bc
 llc -O3 jacobi_opt.bc -o jacobi_opt.s
 gcc -O3 jacobi_opt.s -o jacobi_llvm_opt
 
+echo "Running default and optimized codes"
 echo "-------------------------Timing execution gcc..." && \
 time ./jacobi_c < input.txt > /dev/null && \
 time ./jacobi_c_opt < input.txt > /dev/null
